@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .active{
+            background-color: tomato;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+   <!-- banner section -->
+       <div id="banner" class="flex w-11/12 justify-between  mx-auto">
+              <!-- input section -->
+         <div class="py-25 px-10 space-y-5">
+           <h1 class="font-bold text-4xl "> <span class="text-blue-400">English</span> is Easy!!</h1>
+           <p class="font-bold">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+           <input id="name" type="text" placeholder="Enter Your Name" class="input" /> <br>
+           <input id="code" type="text" placeholder="Enter Login Code (123456)" class="input" /> <br>
+           <button id="get_started" class="btn bg-blue-600 text-white font-bold">Get Started</button>
+         </div>
+          <!-- image -->
+           <img src="./assets/hero-student.png" alt="">
+       </div>
+        
+       <!-- main section -->
+        <section id="main_section" class="">
+            
+                <nav class="fixed top-0 bg-white left-0 w-full flex justify-between items-center px-10 py-5 border-b-2 border-gray-300 z-50 ">
+                    <div class="flex">
+                        <h2 class="font-bold">English</h2>
+                        <img src="./assets/logo.png" alt="">
+                        <h2 class="font-bold">জানালা</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="faq_btn" onclick="scrollToSection('faq_section')" class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png" alt=""> FAQ</button>
+                        <button id="learn_btn" onclick="scrollToSection('vocab_section')" class="btn btn-outline btn-primary"><img src="./assets/fa-book-open.png" alt=""> Learn</button>
+                        <button id="logout" class="btn btn-outline btn-primary"><img src="./assets/fa-arrow-right-from-bracket.png" alt=""> Logout</button>
+                
+                    </div>
+                </nav>
+            
+            <section class="mt-50  z-10">
+               <!-- Vocabulary section -->
+                <section id="vocab_section" class="w-11/12 mx-auto ">
+                   <div class="my-10">
+                    <h3 class="font-bold text-4xl text-center"><span class="text-blue-400">Let's </span>Learn Vocabularies</h3>
+                   </div>
+                    <div id="select_btn" class="flex justify-center gap-4">
+
+                    </div>
+
+                   
+                     
+                       <!-- default text  -->
+                       <div id="select_section" class="bg-[#F8F8F8] rounded-xl space-y-5 my-20 py-20  ">
+                        <p class="text-sm text-[#79716B] text-center">আপনি এখনো কোন Lesson Select করেন নি। </p>
+                        <h3 class="font-bold text-4xl text-center">একটি Lesson Select করুন।</h3>
+                    </div>
+
+                    <section id="loader" class="text-center py-10 hidden " >
+                        <span class="loading loading-dots loading-xl"></span>
+                    </section>
+                          <!-- card section -->
+                        <div id="vocabulary_container" class="bg-[#F8F8F8] rounded-xl grid grid-cols-3 gap-4 my-10 p-4 ">
+                        
+                        </div>
+                     
+                     
+
+                     <!-- modal section -->
+                     <dialog id="video_details" class="modal">
+                        <div class="modal-box">
+                            <div id="details_container" class="rounded-xl bg-white w-[350px] p-5 ">
+    
+                            </div>
+                         
+                          <div class="modal-action">
+                            <form method="dialog">
+                              <!-- if there is a button in form, it will close the modal -->
+                              <button class="btn bg-blue-600 text-white">Complete Learning</button>
+                            </form>
+                          </div>
+                        </div>
+                      </dialog>
+                      
+                   
+                </section>
+
+                <!-- FAQ Section -->
+                 <section id="faq_section" class="mb-20 w-11/12 mx-auto">
+                      <div class="my-20">
+                        <h2 class="font-bold  text-4xl text-center"> <span class="text-blue-400">Frequently</span> Asked Questions</h2>
+                      </div>
+                      <div>
+                          
+                          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title font-semibold">1. What is the difference between var, let, and const?</div>
+                            <div class="collapse-content text-sm">
+                                var: Function-scoped, hoisted with undefined, allows redeclaration and reassignment. <br>
+                                let: Block-scoped, hoisted but not initialized, allows reassignment but not redeclaration. <br>
+                                const: Block-scoped, hoisted but not initialized, does not allow reassignment or redeclaration.</div>
+                          </div>
+                          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title font-semibold">2. What the difference between map(), forEach(), and filter()?</div>
+                            <div class="collapse-content text-sm">
+                                map(): Creates a new array by transforming elements. <br>
+                                forEach(): Loops through elements but does not return a new array. <br>
+                                filter(): Creates a new array with elements that pass a condition.</div>
+                          </div>
+                          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title font-semibold">3. What are arrow functions and how they are different from regular functions?</div>
+                            <div class="collapse-content text-sm"><p><strong>Syntax</strong> – Arrow functions are shorter, while regular functions use <code>function</code>.</p>
+                                <p><strong>this Binding</strong> – Regular functions have their own <code>this</code>, but arrow functions inherit <code>this</code> from their surrounding scope.</p>
+                                <p><strong>Arguments Object</strong> – Regular functions have an <code>arguments</code> object, whereas arrow functions do not.</p>
+                                <p><strong>Constructor Support</strong> – Regular functions can be used with <code>new</code>, but arrow functions cannot.</p></div>
+                          </div>
+                          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title font-semibold">4. How JavaScript Promises work?</div>
+                            <div class="collapse-content text-sm">
+                                <p>A JavaScript Promise is an object that represents the eventual completion or failure of an asynchronous operation. It has three states: Pending (still in progress), Fulfilled (operation successful), and Rejected (operation failed). Promises are handled using `.then()` for success, `.catch()` for failure, and `.finally()` for cleanup, allowing you to write asynchronous code more easily.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                            <input type="radio" name="my-accordion-3" checked="checked" />
+                            <div class="collapse-title font-semibold">5. How closures work in JavaScript?</div>
+                            <div class="collapse-content text-sm"><p>A closure in JavaScript occurs when a function retains access to its lexical scope, even after the function that created it has finished executing. This means a function can remember and access variables from its outer (enclosing) function even after the outer function has completed. Closures are commonly used for data encapsulation, private variables, and creating functions with specific behavior.</p>
+                            </div>
+                          </div>
+                      </div>
+                 </section>
+            </section>
+            
+        </section>
+    <footer id="footer" class="flex w-full justify-between px-10 py-25 border-t-2 border-red-100">
+            <div class="space-y-2">
+                <div class="flex">
+                    <h2 class="font-bold">English</h2>
+                    <img src="./assets/logo.png" alt="">
+                    <h2 class="font-bold">জানালা</h2>
+                </div>
+                <h3 class="font-bold">ইংরেজি শিখুন সহজে</h3>
+                <p class="text-sm">Providing ED-Tech Applications since 2025</p>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-[#18181B] font-semibold">Follow us</h3>
+                <div class="flex gap-2">
+                    <img src="./assets/fb-thumb.png" alt="">
+                    <img src="./assets/youtube-thumb.png" alt="">
+                    <img src="./assets/instagram-thumb.png" alt="">
+                    <img src="./assets/github-thumb.png" alt="">
+                </div>
+            </div>
+    </footer>  
+    <script>
+        function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const navHeight = document.querySelector("nav").offsetHeight;
+    
+    window.scrollTo({
+        top: section.offsetTop - navHeight - 10, // Adjust for navbar height
+        behavior: "smooth"
+    });
+}
+    </script>  
+    <script src="./js/script.js"></script>
+</body>
+</html>
